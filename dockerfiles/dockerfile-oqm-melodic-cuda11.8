@@ -1,0 +1,61 @@
+# syntax=docker/dockerfile:1
+
+FROM ubuntu:18.04
+
+ARG USERNAME=cfi
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+RUN groupadd -g $USER_GID $USERNAME \
+    && useradd -u $USER_UID -g $USER_GID -ms /bin/bash $USERNAME
+
+RUN apt update; exit 0
+RUN apt -y install sudo \
+    && printf "$USERNAME ALL=(root) NOPASSWD:ALL\n" > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME
+
+USER $USERNAME
+WORKDIR /home/$USERNAME
+
+RUN sudo DEBIAN_FRONTEND=noninteractive apt -y install x11vnc xinit xserver-xorg-video-dummy xterm xfce4
+RUN sudo apt -y install vim mousepad viewnior vlc git wget unzip
+
+RUN printf 'XTerm*vt100.faceName:xft:Consolas:size=16:antialias=true:style=Regular\nXTerm*vt100.boldFont:xft:Consolas:size=16:antialias=true:style=Bold\n' > .Xresources
+RUN cp /etc/X11/xinit/xinitrc .xinitrc
+RUN printf '\nunset SESSION_MANAGER\nunset DBUS_SESSION_BUS_ADDRESS\nexec startxfce4\n' >> .xinitrc
+RUN sudo mkdir /etc/X11/xorg.conf.d
+RUN printf 'Section "Monitor"\n        Identifier "dummy_monitor"\n        HorizSync 28.0-80.0\n        VertRefresh 48.0-75.0\n        Modeline "1920x1080" 172.80 1920 2040 2248 2576 1080 1081 1084 1118\nEndSection\n\nSection "Device"\n        Identifier "dummy_card"\n        VideoRam 256000\n        Driver "dummy"\nEndSection\n\nSection "Screen"\n        Identifier "dummy_screen"\n        Device "dummy_card"\n        Monitor "dummy_monitor"\n        SubSection "Display"\n        EndSubSection\nEndSection\n' | sudo tee /etc/X11/xorg.conf.d/10-headless.conf
+RUN sudo sed -i 's/console/anybody/' /etc/X11/Xwrapper.config
+
+COPY entrypoint.sh /
+RUN sudo chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+CMD bash
+
+RUN sudo apt -y install python
+RUN sudo cp /usr/bin/py3compile /usr/bin/pycompile
+
+RUN printf "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main\n" | sudo tee /etc/apt/sources.list.d/ros-latest.list
+RUN sudo apt -y install curl
+RUN curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+RUN sudo apt update; exit 0
+RUN sudo apt -y install ros-melodic-ros-base
+RUN sed -i '$a source /opt/ros/melodic/setup.bash' .bashrc
+
+RUN sudo apt -y install ros-melodic-vision-opencv ros-melodic-eigenpy ros-melodic-image-transport ros-melodic-pcl-ros
+
+RUN wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-keyring_1.0-1_all.deb
+RUN sudo dpkg -i cuda-keyring_1.0-1_all.deb
+RUN sudo apt update; exit 0
+RUN sudo apt -y install cuda-toolkit-11-8 \
+    && sed -i '$a export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}' .bashrc \
+    && sed -i '$a export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}' .bashrc
+
+RUN mkdir -p catkin_ws/src \
+    && cd catkin_ws/src \
+    && git clone https://github.com/HKUST-Aerial-Robotics/open_quadtree_mapping.git \
+    && sed -i '16s/c++11/c++14/' open_quadtree_mapping/CMakeLists.txt
+
+RUN cd catkin_ws \
+    && printf '#!/bin/bash\n\ncd $HOME/catkin_ws\nCAP=$(nvidia-smi --query-gpu=compute_cap --format=csv,noheader | sed "s/\.//")\nsed -i "s/_61/_$CAP/g" src/open_quadtree_mapping/CMakeLists.txt\ncatkin_make\n' > build.sh \
+    && chmod u+x build.sh

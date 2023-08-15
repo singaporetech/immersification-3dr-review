@@ -1,0 +1,48 @@
+# syntax=docker/dockerfile:1
+
+FROM tensorflow/tensorflow:1.12.0-devel-gpu-py3
+
+ARG USERNAME=cfi
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+RUN groupadd -g $USER_GID $USERNAME \
+    && useradd -u $USER_UID -g $USER_GID -ms /bin/bash $USERNAME
+
+RUN apt update; exit 0
+RUN apt install -y sudo \
+    && printf "$USERNAME ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME
+
+USER $USERNAME
+WORKDIR /home/$USERNAME
+
+RUN sudo apt -y install libgl1-mesa-dev libsm6 python3-tk git wget
+
+RUN sudo pip install --upgrade pip setuptools wheel
+RUN pip install h5py easydict scipy opencv-python==3.4.9.33 pyyaml toposort vtk==8.1.2
+
+RUN git clone https://github.com/princeton-vl/DeepV2D.git && cd DeepV2D && data/download_models.sh
+
+RUN sed -i '5s/cuda-9.2/cuda/' DeepV2D/deepv2d/special_ops/make.sh
+RUN printf 'TF_CFLAGS=(-I/usr/local/lib/python3.5/dist-packages/tensorflow/include -D_GLIBCXX_USE_CXX11_ABI=0)\nTF_LFLAGS=(-L/usr/local/lib/python3.5/dist-packages/tensorflow -ltensorflow_framework)\n\n\nCUDALIB=/usr/local/cuda/lib64/\n\nnvcc -std=c++11 -c -o backproject_op_gpu.cu.o backproject_op_gpu.cu.cc \\\n  ${TF_CFLAGS[@]} -D GOOGLE_CUDA=1 -x cu -Xcompiler -fPIC\n\ng++ -std=c++11 -shared -o backproject.so backproject_op.cc \\\n  backproject_op_gpu.cu.o ${TF_CFLAGS[@]} -D GOOGLE_CUDA=1 -fPIC -lcudart -L${CUDALIB} ${TF_LFLAGS[@]}\n\n' > DeepV2D/deepv2d/special_ops/make-tmp.sh
+RUN cd DeepV2D/deepv2d/special_ops && bash make-tmp.sh && rm make-tmp.sh
+
+RUN sudo DEBIAN_FRONTEND=noninteractive apt -y install x11vnc xinit xserver-xorg-video-dummy xfce4
+RUN printf 'XTerm*vt100.faceName:xft:Consolas:size=16:antialias=true:style=Regular\nXTerm*vt100.boldFont:xft:Consolas:size=16:antialias=true:style=Bold' > .Xresources
+RUN cp /etc/X11/xinit/xinitrc .xinitrc
+RUN printf '\nunset SESSION_MANAGER\nunset DBUS_SESSION_BUS_ADDRESS\nexec startxfce4\n' >> .xinitrc
+RUN sudo mkdir /etc/X11/xorg.conf.d
+RUN printf 'Section "Monitor"\n        Identifier "dummy_monitor"\n        HorizSync 28.0-80.0\n        VertRefresh 48.0-75.0\n        Modeline "1920x1080" 172.80 1920 2040 2248 2576 1080 1081 1084 1118\nEndSection\n\nSection "Device"\n        Identifier "dummy_card"\n        VideoRam 256000\n        Driver "dummy"\nEndSection\n\nSection "Screen"\n        Identifier "dummy_screen"\n        Device "dummy_card"\n        Monitor "dummy_monitor"\n        SubSection "Display"\n        EndSubSection\nEndSection\n' | sudo tee /etc/X11/xorg.conf.d/10-headless.conf
+
+RUN sudo apt -y install vim mousepad viewnior vlc
+
+RUN cd DeepV2D && printf 'python demos/demo_v2d.py --model=models/nyu.ckpt --sequence=data/demos/nyu_0' > nyu.run && chmod u+x nyu.run
+RUN cd DeepV2D && printf 'python demos/demo_v2d.py --model=models/scannet.ckpt --sequence=data/demos/scannet_0' > scannet.run && chmod u+x scannet.run
+RUN cd DeepV2D && printf 'python demos/demo_v2d.py --model=models/kitti.ckpt --sequence=data/demos/kitti_0' > kitti.run && chmod u+x kitti.run
+RUN cd DeepV2D && printf 'python demos/demo_v2d.py --model=models/nyu.ckpt --sequence=data/demos/nyu_0 --mode=global' > nyu-global.run && chmod u+x nyu-global.run
+
+COPY entrypoint.sh /
+RUN sudo chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+CMD bash

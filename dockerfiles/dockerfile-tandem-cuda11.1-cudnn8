@@ -1,0 +1,95 @@
+# syntax=docker/dockerfile:1
+
+FROM nvidia/cuda:11.1.1-cudnn8-devel-ubuntu18.04
+
+ARG USERNAME=cfi
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+RUN groupadd -g $USER_GID $USERNAME \
+    && useradd -u $USER_UID -g $USER_GID -ms /bin/bash $USERNAME
+
+RUN apt update; exit 0
+RUN apt -y install sudo \
+    && printf "$USERNAME ALL=(root) NOPASSWD:ALL\n" > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME
+
+USER $USERNAME
+WORKDIR /home/$USERNAME
+
+RUN sudo DEBIAN_FRONTEND=noninteractive apt -y install x11vnc xinit xserver-xorg-video-dummy xterm xfce4
+RUN sudo apt -y install vim mousepad viewnior vlc git wget unzip
+
+RUN printf 'XTerm*vt100.faceName:xft:Consolas:size=16:antialias=true:style=Regular\nXTerm*vt100.boldFont:xft:Consolas:size=16:antialias=true:style=Bold\n' > .Xresources
+RUN cp /etc/X11/xinit/xinitrc .xinitrc
+RUN printf '\nunset SESSION_MANAGER\nunset DBUS_SESSION_BUS_ADDRESS\nexec startxfce4\n' >> .xinitrc
+RUN sudo mkdir /etc/X11/xorg.conf.d
+RUN printf 'Section "Monitor"\n        Identifier "dummy_monitor"\n        HorizSync 28.0-80.0\n        VertRefresh 48.0-75.0\n        Modeline "1920x1080" 172.80 1920 2040 2248 2576 1080 1081 1084 1118\nEndSection\n\nSection "Device"\n        Identifier "dummy_card"\n        VideoRam 256000\n        Driver "dummy"\nEndSection\n\nSection "Screen"\n        Identifier "dummy_screen"\n        Device "dummy_card"\n        Monitor "dummy_monitor"\n        SubSection "Display"\n        EndSubSection\nEndSection\n' | sudo tee /etc/X11/xorg.conf.d/10-headless.conf
+RUN sudo sed -i 's/console/anybody/' /etc/X11/Xwrapper.config
+
+COPY entrypoint.sh /
+RUN sudo chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+CMD bash
+
+RUN sudo DEBIAN_FRONTEND=noninteractive apt -y install libsuitesparse-dev libeigen3-dev libboost-all-dev libopencv-dev
+
+RUN wget https://github.com/Kitware/CMake/releases/download/v3.27.1/cmake-3.27.1-linux-x86_64.tar.gz \
+    && tar -xf cmake-3.27.1-linux-x86_64.tar.gz \
+    && rm cmake-3.27.1-linux-x86_64.tar.gz \
+    && mv cmake-3.27.1-linux-x86_64 cmake \
+    && sed -i '$a export PATH=$HOME/cmake/bin${PATH:+:${PATH}}' .bashrc
+
+RUN wget https://download.pytorch.org/libtorch/cu111/libtorch-cxx11-abi-shared-with-deps-1.9.0%2Bcu111.zip \
+    && unzip libtorch-cxx11-abi-shared-with-deps-1.9.0+cu111.zip \
+    && rm libtorch-cxx11-abi-shared-with-deps-1.9.0+cu111.zip
+
+RUN sudo apt -y install libfmt-dev
+RUN wget https://github.com/strasdat/Sophus/archive/refs/tags/1.22.10.tar.gz \
+    && tar -xf 1.22.10.tar.gz \
+    && rm 1.22.10.tar.gz
+RUN cd Sophus-1.22.10 \
+    && mkdir build \
+    && cd build \
+    && $HOME/cmake/bin/cmake .. \
+    && make \
+    && sudo make install
+
+RUN git clone https://github.com/rogersce/cnpy.git
+RUN cd cnpy \
+    && mkdir build \
+    && cd build \
+    && $HOME/cmake/bin/cmake .. \
+    && make \
+    && sudo make install
+
+RUN sudo apt -y install libgl1-mesa-dev libglew-dev libpython2.7-dev
+RUN wget https://github.com/stevenlovegrove/Pangolin/archive/refs/tags/v0.6.tar.gz \
+    && tar -xf v0.6.tar.gz \
+    && rm v0.6.tar.gz
+RUN cd Pangolin-0.6 \
+    && mkdir build \
+    && cd build \
+    && $HOME/cmake/bin/cmake .. \
+    && make \
+    && sudo make install
+
+RUN git clone https://github.com/tum-vision/tandem.git
+RUN cd tandem/tandem \
+    && mkdir build \
+    && cd build \
+    && export TANDEM_CUDNN_LIBRARY=/usr/lib/x86_64-linux-gnu \
+    && export TANDEM_CUDNN_INCLUDE_PATH=/usr/include \
+    && export TANDEM_LIBTORCH_DIR=~/libtorch \
+    && $HOME/cmake/bin/cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=$TANDEM_LIBTORCH_DIR -DCUDNN_LIBRARY=$TANDEM_CUDNN_LIBRARY -DCUDNN_INCLUDE_PATH=$TANDEM_CUDNN_INCLUDE_PATH \
+    && make -j
+
+RUN wget https://vision.in.tum.de/webshare/g/tandem/data/euroc_tandem_format_1.1.beta.zip \
+    && unzip euroc_tandem_format_1.1.beta.zip \
+    && rm euroc_tandem_format_1.1.beta.zip
+RUN sed -i '$a export EUROC_TANDEM_FORMAT=$HOME/euroc_tandem_format' .bashrc
+
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+RUN bash Miniconda3-latest-Linux-x86_64.sh -b \
+    && miniconda3/bin/conda create -n py2 python=2.7 numpy matplotlib -y
+RUN sed -i '$a export TANDEM_PY2=$HOME/miniconda3/envs/py2/bin/python' .bashrc
