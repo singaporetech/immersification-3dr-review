@@ -1,0 +1,32 @@
+14 Aug 2023, 01:33:47
+
+task_id: 3d-scene-reconstruction
+items_per_page: 500
+min_date: 2018-01-01
+max_date: 2023-07-31
+and_or_query: [['online', 'progressive', 'collab', 'real-time', 'end-to-end']]
+not_query: ['facial', 'human', 'underwater', 'road surface', 'morphable', 'deform', 'x-ray', 'histology', 'endoscopic']
+format_type: 2
+
+Retrieving pages of '3d-scene-reconstruction'
+Fetching page 1...contains 77 papers
+Retrieval done!
+
+Total pages retrieved  = 1
+Total papers retrieved = 77
+
+Filtering out papers that do not have associated code...done!
+Removed 50 papers from list
+Remaining papers in list = 27
+
+Filtering out papers published before 2018-01-01 00:00:00 and after 2023-07-31 00:00:00...done!
+Removed 1 papers from list
+Remaining papers in list = 26
+
+Filtering papers based on AND-OR query...done!
+Removed 20 papers from list
+Remaining papers in list = 6
+
+Filtering papers based on NOT query...done!
+Removed 0 papers from list
+Remaining papers in list = 6

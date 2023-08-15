@@ -1,0 +1,200 @@
+15
+Video Based Reconstruction of 3D People Models
+2018-03-13
+This paper describes how to obtain accurate 3D body models and texture of
+arbitrary people from a single, monocular video in which a person is moving.
+Based on a parametric body model, we present a robust processing pipeline
+achieving 3D model fits with 5mm accuracy also for clothed people. Our main
+contribution is a method to nonrigidly deform the silhouette cones
+corresponding to the dynamic human silhouettes, resulting in a visual hull in a
+common reference frame that enables surface reconstruction. This enables
+efficient estimation of a consensus 3D shape, texture and implanted animation
+skeleton based on a large number of frames. We present evaluation results for a
+number of test subjects and analyze overall performance. Requiring only a
+smartphone or webcam, our method enables everyone to create their own fully
+animatable digital double, e.g., for social VR applications or virtual try-on
+for online fashion shopping.
+
+17
+Nonlinear 3D Face Morphable Model
+2018-04-11
+As a classic statistical model of 3D facial shape and texture, 3D Morphable
+Model (3DMM) is widely used in facial analysis, e.g., model fitting, image
+synthesis. Conventional 3DMM is learned from a set of well-controlled 2D face
+images with associated 3D face scans, and represented by two sets of PCA basis
+functions. Due to the type and amount of training data, as well as the linear
+bases, the representation power of 3DMM can be limited. To address these
+problems, this paper proposes an innovative framework to learn a nonlinear 3DMM
+model from a large set of unconstrained face images, without collecting 3D face
+scans. Specifically, given a face image as input, a network encoder estimates
+the projection, shape and texture parameters. Two decoders serve as the
+nonlinear 3DMM to map from the shape and texture parameters to the 3D shape and
+texture, respectively. With the projection parameter, 3D shape, and texture, a
+novel analytically-differentiable rendering layer is designed to reconstruct
+the original input face. The entire network is end-to-end trainable with only
+weak supervision. We demonstrate the superior representation power of our
+nonlinear 3DMM over its linear counterpart, and its contribution to face
+alignment and 3D reconstruction.
+
+30
+A Neural Network Approach to Missing Marker Reconstruction in Human Motion Capture
+2018-03-07
+Optical motion capture systems have become a widely used technology in
+various fields, such as augmented reality, robotics, movie production, etc.
+Such systems use a large number of cameras to triangulate the position of
+optical markers.The marker positions are estimated with high accuracy. However,
+especially when tracking articulated bodies, a fraction of the markers in each
+timestep is missing from the reconstruction. In this paper, we propose to use a
+neural network approach to learn how human motion is temporally and spatially
+correlated, and reconstruct missing markers positions through this model. We
+experiment with two different models, one LSTM-based and one time-window-based.
+Both methods produce state-of-the-art results, while working online, as opposed
+to most of the alternative methods, which require the complete sequence to be
+known. The implementation is publicly available at
+https://github.com/Svito-zar/NN-for-Missing-Marker-Reconstruction .
+
+166
+Road surface 3d reconstruction based on dense subpixel disparity map estimation
+2018-07-05
+Various 3D reconstruction methods have enabled civil engineers to detect damage on a road surface. To achieve the millimetre accuracy required for road condition assessment, a disparity map with subpixel resolution needs to be used. However, none of the existing stereo matching algorithms are specially suitable for the reconstruction of the road surface. Hence in this paper, we propose a novel dense subpixel disparity estimation algorithm with high computational efficiency and robustness. This is achieved by first transforming the perspective view of the target frame into the reference view, which not only increases the accuracy of the block matching for the road surface but also improves the processing speed. The disparities are then estimated iteratively using our previously published algorithm where the search range is propagated from three estimated neighbouring disparities. Since the search range is obtained from the previous iteration, errors may occur when the propagated search range is not sufficient. Therefore, a correlation maxima verification is performed to rectify this issue, and the subpixel resolution is achieved by conducting a parabola interpolation enhancement. Furthermore, a novel disparity global refinement approach developed from the Markov Random Fields and Fast Bilateral Stereo is introduced to further improve the accuracy of the estimated disparity map, where disparities are updated iteratively by minimising the energy function that is related to their interpolated correlation polynomials. The algorithm is implemented in C language with a near real-time performance. The experimental results illustrate that the absolute error of the reconstruction varies from 0.1 mm to 3 mm.
+
+184
+On Learning 3D Face Morphable Model from In-the-wild Images
+2018-08-28
+As a classic statistical model of 3D facial shape and albedo, 3D Morphable Model (3DMM) is widely used in facial analysis, e.g., model fitting, image synthesis. Conventional 3DMM is learned from a set of 3D face scans with associated well-controlled 2D face images, and represented by two sets of PCA basis functions. Due to the type and amount of training data, as well as, the linear bases, the representation power of 3DMM can be limited. To address these problems, this paper proposes an innovative framework to learn a nonlinear 3DMM model from a large set of in-the-wild face images, without collecting 3D face scans. Specifically, given a face image as input, a network encoder estimates the projection, lighting, shape and albedo parameters. Two decoders serve as the nonlinear 3DMM to map from the shape and albedo parameters to the 3D shape and albedo, respectively. With the projection parameter, lighting, 3D shape, and albedo, a novel analytically-differentiable rendering layer is designed to reconstruct the original input face. The entire network is end-to-end trainable with only weak supervision. We demonstrate the superior representation power of our nonlinear 3DMM over its linear counterpart, and its contribution to face alignment, 3D reconstruction, and face editing.
+
+200
+Multiview Supervision By Registration
+2018-11-27
+This paper presents a semi-supervised learning framework to train a keypoint
+detector using multiview image streams given the limited labeled data
+(typically $<$4\%). We leverage the complementary relationship between
+multiview geometry and visual tracking to provide three types of supervisionary
+signals to utilize the unlabeled data: (1) keypoint detection in one view can
+be supervised by other views via the epipolar geometry; (2) a keypoint moves
+smoothly over time where its optical flow can be used to temporally supervise
+consecutive image frames to each other; (3) visible keypoint in one view is
+likely to be visible in the adjacent view. We integrate these three signals in
+a differentiable fashion to design a new end-to-end neural network composed of
+three pathways. This design allows us to extensively use the unlabeled data to
+train the keypoint detector. We show that our approach outperforms existing
+detectors including DeepLabCut tailored to the keypoint detection of non-human
+species such as monkeys, dogs, and mice.
+
+334
+Single-Image Piece-wise Planar 3D Reconstruction via Associative Embedding
+2019-02-26
+Single-image piece-wise planar 3D reconstruction aims to simultaneously
+segment plane instances and recover 3D plane parameters from an image. Most
+recent approaches leverage convolutional neural networks (CNNs) and achieve
+promising results. However, these methods are limited to detecting a fixed
+number of planes with certain learned order. To tackle this problem, we propose
+a novel two-stage method based on associative embedding, inspired by its recent
+success in instance segmentation. In the first stage, we train a CNN to map
+each pixel to an embedding space where pixels from the same plane instance have
+similar embeddings. Then, the plane instances are obtained by grouping the
+embedding vectors in planar regions via an efficient mean shift clustering
+algorithm. In the second stage, we estimate the parameter for each plane
+instance by considering both pixel-level and instance-level consistencies. With
+the proposed method, we are able to detect an arbitrary number of planes.
+Extensive experiments on public datasets validate the effectiveness and
+efficiency of our method. Furthermore, our method runs at 30 fps at the testing
+time, thus could facilitate many real-time applications such as visual SLAM and
+human-robot interaction. Code is available at
+https://github.com/svip-lab/PlanarReconstruction.
+
+353
+Single Image 3D Hand Reconstruction with Mesh Convolutions
+2019-05-04
+Monocular 3D reconstruction of deformable objects, such as human body parts, has been typically approached by predicting parameters of heavyweight linear models. In this paper, we demonstrate an alternative solution that is based on the idea of encoding images into a latent non-linear representation of meshes. The prior on 3D hand shapes is learned by training an autoencoder with intrinsic graph convolutions performed in the spectral domain. The pre-trained decoder acts as a non-linear statistical deformable model. The latent parameters that reconstruct the shape and articulated pose of hands in the image are predicted using an image encoder. We show that our system reconstructs plausible meshes and operates in real-time. We evaluate the quality of the mesh reconstructions produced by the decoder on a new dataset and show latent space interpolation results. Our code, data, and models will be made publicly available.
+
+472
+PeeledHuman: Robust Shape Representation for Textured 3D Human Body Reconstruction
+2020-02-16
+We introduce PeeledHuman - a novel shape representation of the human body that is robust to self-occlusions. PeeledHuman encodes the human body as a set of Peeled Depth and RGB maps in 2D, obtained by performing ray-tracing on the 3D body model and extending each ray beyond its first intersection. This formulation allows us to handle self-occlusions efficiently compared to other representations. Given a monocular RGB image, we learn these Peeled maps in an end-to-end generative adversarial fashion using our novel framework - PeelGAN. We train PeelGAN using a 3D Chamfer loss and other 2D losses to generate multiple depth values per-pixel and a corresponding RGB field per-vertex in a dual-branch setup. In our simple non-parametric solution, the generated Peeled Depth maps are back-projected to 3D space to obtain a complete textured 3D shape. The corresponding RGB maps provide vertex-level texture details. We compare our method with current parametric and non-parametric methods in 3D reconstruction and find that we achieve state-of-the-art-results. We demonstrate the effectiveness of our representation on publicly available BUFF and MonoPerfCap datasets as well as loose clothing data collected by our calibrated multi-Kinect setup.
+
+530
+3D Shape Reconstruction from Free-Hand Sketches
+2020-06-17
+Sketches are the most abstract 2D representations of real-world objects. Although a sketch usually has geometrical distortion and lacks visual cues, humans can effortlessly envision a 3D object from it. This suggests that sketches encode the information necessary for reconstructing 3D shapes. Despite great progress achieved in 3D reconstruction from distortion-free line drawings, such as CAD and edge maps, little effort has been made to reconstruct 3D shapes from free-hand sketches. We study this task and aim to enhance the power of sketches in 3D-related applications such as interactive design and VR/AR games. Unlike previous works, which mostly study distortion-free line drawings, our 3D shape reconstruction is based on free-hand sketches. A major challenge for free-hand sketch 3D reconstruction comes from the insufficient training data and free-hand sketch diversity, e.g. individualized sketching styles. We thus propose data generation and standardization mechanisms. Instead of distortion-free line drawings, synthesized sketches are adopted as input training data. Additionally, we propose a sketch standardization module to handle different sketch distortions and styles. Extensive experiments demonstrate the effectiveness of our model and its strong generalizability to various free-hand sketches. Our code is publicly available at https://github.com/samaonline/3D-Shape-Reconstruction-from-Free-Hand-Sketches.
+
+564
+BraggNN: Fast X-ray Bragg Peak Analysis Using Deep Learning
+2020-08-18
+X-ray diffraction based microscopy techniques such as High Energy Diffraction Microscopy rely on knowledge of the position of diffraction peaks with high precision. These positions are typically computed by fitting the observed intensities in area detector data to a theoretical peak shape such as pseudo-Voigt. As experiments become more complex and detector technologies evolve, the computational cost of such peak detection and shape fitting becomes the biggest hurdle to the rapid analysis required for real-time feedback during in-situ experiments. To this end, we propose BraggNN, a deep learning-based method that can determine peak positions much more rapidly than conventional pseudo-Voigt peak fitting. When applied to a test dataset, BraggNN gives errors of less than 0.29 and 0.57 pixels, relative to the conventional method, for 75% and 95% of the peaks, respectively. When applied to a real experimental dataset, a 3D reconstruction that used peak positions computed by BraggNN yields 15% better results on average as compared to a reconstruction obtained using peak positions determined using conventional 2D pseudo-Voigt fitting. Recent advances in deep learning method implementations and special-purpose model inference accelerators allow BraggNN to deliver enormous performance improvements relative to the conventional method, running, for example, more than 200 times faster than a conventional method on a consumer-class GPU card with out-of-the-box software.
+
+605
+PCLs: Geometry-aware Neural Reconstruction of 3D Pose with Perspective Crop Layers
+2020-11-27
+Local processing is an essential feature of CNNs and other neural network architectures - it is one of the reasons why they work so well on images where relevant information is, to a large extent, local. However, perspective effects stemming from the projection in a conventional camera vary for different global positions in the image. We introduce Perspective Crop Layers (PCLs) - a form of perspective crop of the region of interest based on the camera geometry - and show that accounting for the perspective consistently improves the accuracy of state-of-the-art 3D pose reconstruction methods. PCLs are modular neural network layers, which, when inserted into existing CNN and MLP architectures, deterministically remove the location-dependent perspective effects while leaving end-to-end training and the number of parameters of the underlying neural network unchanged. We demonstrate that PCL leads to improved 3D human pose reconstruction accuracy for CNN architectures that use cropping operations, such as spatial transformer networks (STN), and, somewhat surprisingly, MLPs used for 2D-to-3D keypoint lifting. Our conclusion is that it is important to utilize camera calibration information when available, for classical and deep-learning-based computer vision alike. PCL offers an easy way to improve the accuracy of existing 3D reconstruction networks by making them geometry aware. Our code is publicly available at github.com/yu-frank/PerspectiveCropLayers.
+
+641
+SERV-CT: A disparity dataset from CT for validation of endoscopic 3D reconstruction
+2020-12-22
+In computer vision, reference datasets have been highly successful in promoting algorithmic development in stereo reconstruction. Surgical scenes gives rise to specific problems, including the lack of clear corner features, highly specular surfaces and the presence of blood and smoke. Publicly available datasets have been produced using CT and either phantom images or biological tissue samples covering a relatively small region of the endoscope field-of-view. We present a stereo-endoscopic reconstruction validation dataset based on CT (SERV-CT). Two {\it ex vivo} small porcine full torso cadavers were placed within the view of the endoscope with both the endoscope and target anatomy visible in the CT scan. Orientation of the endoscope was manually aligned to the stereoscopic view. Reference disparities and occlusions were calculated for 8 stereo pairs from each sample. For the second sample an RGB surface was acquired to aid alignment of smooth, featureless surfaces. Repeated manual alignments showed an RMS disparity accuracy of ~2 pixels and a depth accuracy of ~2mm. The reference dataset includes endoscope image pairs with corresponding calibration, disparities, depths and occlusions covering the majority of the endoscopic image and a range of tissue types. Smooth specular surfaces and images with significant variation of depth are included. We assessed the performance of various stereo algorithms from online available repositories. There is a significant variation between algorithms, highlighting some of the challenges of surgical endoscopic images. The SERV-CT dataset provides an easy to use stereoscopic validation for surgical applications with smooth reference disparities and depths with coverage over the majority of the endoscopic images. This complements existing resources well and we hope will aid the development of surgical endoscopic anatomical reconstruction algorithms.
+
+645
+Weakly-Supervised Multi-Face 3D Reconstruction
+2021-01-06
+3D face reconstruction plays a very important role in many real-world multimedia applications, including digital entertainment, social media, affection analysis, and person identification. The de-facto pipeline for estimating the parametric face model from an image requires to firstly detect the facial regions with landmarks, and then crop each face to feed the deep learning-based regressor. Comparing to the conventional methods performing forward inference for each detected instance independently, we suggest an effective end-to-end framework for multi-face 3D reconstruction, which is able to predict the model parameters of multiple instances simultaneously using single network inference. Our proposed approach not only greatly reduces the computational redundancy in feature extraction but also makes the deployment procedure much easier using the single network model. More importantly, we employ the same global camera model for the reconstructed faces in each image, which makes it possible to recover the relative head positions and orientations in the 3D scene. We have conducted extensive experiments to evaluate our proposed approach on the sparse and dense face alignment tasks. The experimental results indicate that our proposed approach is very promising on face alignment tasks without fully-supervision and pre-processing like detection and crop. Our implementation is publicly available at \url{https://github.com/kalyo-zjl/WM3DR}.
+
+648
+Kimera: from SLAM to Spatial Perception with 3D Dynamic Scene Graphs
+2021-01-18
+Humans are able to form a complex mental model of the environment they move in. This mental model captures geometric and semantic aspects of the scene, describes the environment at multiple levels of abstractions (e.g., objects, rooms, buildings), includes static and dynamic entities and their relations (e.g., a person is in a room at a given time). In contrast, current robots' internal representations still provide a partial and fragmented understanding of the environment, either in the form of a sparse or dense set of geometric primitives (e.g., points, lines, planes, voxels) or as a collection of objects. This paper attempts to reduce the gap between robot and human perception by introducing a novel representation, a 3D Dynamic Scene Graph(DSG), that seamlessly captures metric and semantic aspects of a dynamic environment. A DSG is a layered graph where nodes represent spatial concepts at different levels of abstraction, and edges represent spatio-temporal relations among nodes. Our second contribution is Kimera, the first fully automatic method to build a DSG from visual-inertial data. Kimera includes state-of-the-art techniques for visual-inertial SLAM, metric-semantic 3D reconstruction, object localization, human pose and shape estimation, and scene parsing. Our third contribution is a comprehensive evaluation of Kimera in real-life datasets and photo-realistic simulations, including a newly released dataset, uHumans2, which simulates a collection of crowded indoor and outdoor scenes. Our evaluation shows that Kimera achieves state-of-the-art performance in visual-inertial SLAM, estimates an accurate 3D metric-semantic mesh model in real-time, and builds a DSG of a complex indoor environment with tens of objects and humans in minutes. Our final contribution shows how to use a DSG for real-time hierarchical semantic path-planning. The core modules in Kimera are open-source.
+
+661
+SMPLicit: Topology-aware Generative Model for Clothed People
+2021-03-11
+In this paper we introduce SMPLicit, a novel generative model to jointly represent body pose, shape and clothing geometry. In contrast to existing learning-based approaches that require training specific models for each type of garment, SMPLicit can represent in a unified manner different garment topologies (e.g. from sleeveless tops to hoodies and to open jackets), while controlling other properties like the garment size or tightness/looseness. We show our model to be applicable to a large variety of garments including T-shirts, hoodies, jackets, shorts, pants, skirts, shoes and even hair. The representation flexibility of SMPLicit builds upon an implicit model conditioned with the SMPL human body parameters and a learnable latent space which is semantically interpretable and aligned with the clothing attributes. The proposed model is fully differentiable, allowing for its use into larger end-to-end trainable systems. In the experimental section, we demonstrate SMPLicit can be readily used for fitting 3D scans and for 3D reconstruction in images of dressed people. In both cases we are able to go beyond state of the art, by retrieving complex garment geometries, handling situations with multiple clothing layers and providing a tool for easy outfit editing. To stimulate further research in this direction, we will make our code and model publicly available at http://www.iri.upc.edu/people/ecorona/smplicit/.
+
+671
+Heuristics for optimizing 3D mapping missions over swarm-powered ad hoc clouds
+2021-03-11
+Drones have been getting more and more popular in many economy sectors. Both scientific and industrial communities aim at making the impact of drones even more disruptive by empowering collaborative autonomous behaviors -- also known as swarming behaviors -- within fleets of multiple drones. In swarming-powered 3D mapping missions, unmanned aerial vehicles typically collect the aerial pictures of the target area whereas the 3D reconstruction process is performed in a centralized manner. However, such approaches do not leverage computational and storage resources from the swarm members.We address the optimization of a swarm-powered distributed 3D mapping mission for a real-life humanitarian emergency response application through the exploitation of a swarm-powered ad hoc cloud. Producing the relevant 3D maps in a timely manner, even when the cloud connectivity is not available, is crucial to increase the chances of success of the operation. In this work, we present a mathematical programming heuristic based on decomposition and a variable neighborhood search heuristic to minimize the completion time of the 3D reconstruction process necessary in such missions. Our computational results reveal that the proposed heuristics either quickly reach optimality or improve the best known solutions for almost all tested realistic instances comprising up to 1000 images and fifteen drones.
+
+682
+Data-Driven 3D Reconstruction of Dressed Humans From Sparse Views
+2021-04-16
+Recently, data-driven single-view reconstruction methods have shown great progress in modeling 3D dressed humans. However, such methods suffer heavily from depth ambiguities and occlusions inherent to single view inputs. In this paper, we tackle this problem by considering a small set of input views and investigate the best strategy to suitably exploit information from these views. We propose a data-driven end-to-end approach that reconstructs an implicit 3D representation of dressed humans from sparse camera views. Specifically, we introduce three key components: first a spatially consistent reconstruction that allows for arbitrary placement of the person in the input views using a perspective camera model; second an attention-based fusion layer that learns to aggregate visual information from several viewpoints; and third a mechanism that encodes local 3D patterns under the multi-view context. In the experiments, we show the proposed approach outperforms the state of the art on standard data both quantitatively and qualitatively. To demonstrate the spatially consistent reconstruction, we apply our approach to dynamic scenes. Additionally, we apply our method on real data acquired with a multi-camera platform and demonstrate our approach can obtain results comparable to multi-view stereo with dramatically less views.
+
+690
+Robust joint registration of multiple stains and MRI for multimodal 3D histology reconstruction: Application to the Allen human brain atlas
+2021-04-30
+Joint registration of a stack of 2D histological sections to recover 3D structure (``3D histology reconstruction'') finds application in areas such as atlas building and validation of \emph{in vivo} imaging. Straightforward pairwise registration of neighbouring sections yields smooth reconstructions but has well-known problems such as ``banana effect'' (straightening of curved structures) and ``z-shift'' (drift). While these problems can be alleviated with an external, linearly aligned reference (e.g., Magnetic Resonance (MR) images), registration is often inaccurate due to contrast differences and the strong nonlinear distortion of the tissue, including artefacts such as folds and tears. In this paper, we present a probabilistic model of spatial deformation that yields reconstructions for multiple histological stains that that are jointly smooth, robust to outliers, and follow the reference shape. The model relies on a spanning tree of latent transforms connecting all the sections and slices of the reference volume, and assumes that the registration between any pair of images can be see as a noisy version of the composition of (possibly inverted) latent transforms connecting the two images. Bayesian inference is used to compute the most likely latent transforms given a set of pairwise registrations between image pairs within and across modalities. The framework is used for accurate 3D reconstruction of two stains (Nissl and parvalbumin) from the Allen human brain atlas, showing its benefits on real data with severe distortions. Moreover, we also provide the registration of the reconstructed volume to MNI space, bridging the gaps between two of the most widely used atlases in histology and MRI. The 3D reconstructed volumes and atlas registration can be downloaded from https://openneuro.org/datasets/ds003590. The code is freely available at https://github.com/acasamitjana/3dhirest.
+
+711
+Kimera-Multi: Robust, Distributed, Dense Metric-Semantic SLAM for Multi-Robot Systems
+2021-06-28
+This paper presents Kimera-Multi, the first multi-robot system that (i) is robust and capable of identifying and rejecting incorrect inter and intra-robot loop closures resulting from perceptual aliasing, (ii) is fully distributed and only relies on local (peer-to-peer) communication to achieve distributed localization and mapping, and (iii) builds a globally consistent metric-semantic 3D mesh model of the environment in real-time, where faces of the mesh are annotated with semantic labels. Kimera-Multi is implemented by a team of robots equipped with visual-inertial sensors. Each robot builds a local trajectory estimate and a local mesh using Kimera. When communication is available, robots initiate a distributed place recognition and robust pose graph optimization protocol based on a novel distributed graduated non-convexity algorithm. The proposed protocol allows the robots to improve their local trajectory estimates by leveraging inter-robot loop closures while being robust to outliers. Finally, each robot uses its improved trajectory estimate to correct the local mesh using mesh deformation techniques. We demonstrate Kimera-Multi in photo-realistic simulations, SLAM benchmarking datasets, and challenging outdoor datasets collected using ground robots. Both real and simulated experiments involve long trajectories (e.g., up to 800 meters per robot). The experiments show that Kimera-Multi (i) outperforms the state of the art in terms of robustness and accuracy, (ii) achieves estimation errors comparable to a centralized SLAM system while being fully distributed, (iii) is parsimonious in terms of communication bandwidth, (iv) produces accurate metric-semantic 3D meshes, and (v) is modular and can be also used for standard 3D reconstruction (i.e., without semantic labels) or for trajectory estimation (i.e., without reconstructing a 3D mesh).
+
+869
+Unsupervised Single-shot Depth Estimation using Perceptual Reconstruction
+2022-01-28
+Real-time estimation of actual object depth is an essential module for various autonomous system tasks such as 3D reconstruction, scene understanding and condition assessment. During the last decade of machine learning, extensive deployment of deep learning methods to computer vision tasks has yielded approaches that succeed in achieving realistic depth synthesis out of a simple RGB modality. Most of these models are based on paired RGB-depth data and/or the availability of video sequences and stereo images. The lack of sequences, stereo data and RGB-depth pairs makes depth estimation a fully unsupervised single-image transfer problem that has barely been explored so far. This study builds on recent advances in the field of generative neural networks in order to establish fully unsupervised single-shot depth estimation. Two generators for RGB-to-depth and depth-to-RGB transfer are implemented and simultaneously optimized using the Wasserstein-1 distance, a novel perceptual reconstruction term and hand-crafted image filters. We comprehensively evaluate the models using industrial surface depth data as well as the Texas 3D Face Recognition Database, the CelebAMask-HQ database of human portraits and the SURREAL dataset that records body depth. For each evaluation dataset the proposed method shows a significant increase in depth accuracy compared to state-of-the-art single-image transfer methods.
+
+941
+Topologically-Aware Deformation Fields for Single-View 3D Reconstruction
+2022-05-12
+We present a framework for learning 3D object shapes and dense cross-object 3D correspondences from just an unaligned category-specific image collection. The 3D shapes are generated implicitly as deformations to a category-specific signed distance field and are learned in an unsupervised manner solely from unaligned image collections and their poses without any 3D supervision. Generally, image collections on the internet contain several intra-category geometric and topological variations, for example, different chairs can have different topologies, which makes the task of joint shape and correspondence estimation much more challenging. Because of this, prior works either focus on learning each 3D object shape individually without modeling cross-instance correspondences or perform joint shape and correspondence estimation on categories with minimal intra-category topological variations. We overcome these restrictions by learning a topologically-aware implicit deformation field that maps a 3D point in the object space to a higher dimensional point in the category-specific canonical space. At inference time, given a single image, we reconstruct the underlying 3D shape by first implicitly deforming each 3D point in the object space to the learned category-specific canonical space using the topologically-aware deformation field and then reconstructing the 3D shape as a canonical signed distance field. Both canonical shape and deformation field are learned end-to-end in an inverse-graphics fashion using a learned recurrent ray marcher (SRN) as a differentiable rendering module. Our approach, dubbed TARS, achieves state-of-the-art reconstruction fidelity on several datasets: ShapeNet, Pascal3D+, CUB, and Pix3D chairs. Result videos and code at https://shivamduggal4.github.io/tars-3D/
+
+1128
+Mono-STAR: Mono-camera Scene-level Tracking and Reconstruction
+2023-01-30
+We present Mono-STAR, the first real-time 3D reconstruction system that simultaneously supports semantic fusion, fast motion tracking, non-rigid object deformation, and topological change under a unified framework. The proposed system solves a new optimization problem incorporating optical-flow-based 2D constraints to deal with fast motion and a novel semantic-aware deformation graph (SAD-graph) for handling topology change. We test the proposed system under various challenging scenes and demonstrate that it significantly outperforms existing state-of-the-art methods.
+
+1164
+Real-time volumetric rendering of dynamic humans
+2023-03-21
+We present a method for fast 3D reconstruction and real-time rendering of dynamic humans from monocular videos with accompanying parametric body fits. Our method can reconstruct a dynamic human in less than 3h using a single GPU, compared to recent state-of-the-art alternatives that take up to 72h. These speedups are obtained by using a lightweight deformation model solely based on linear blend skinning, and an efficient factorized volumetric representation for modeling the shape and color of the person in canonical pose. Moreover, we propose a novel local ray marching rendering which, by exploiting standard GPU hardware and without any baking or conversion of the radiance field, allows visualizing the neural human on a mobile VR device at 40 frames per second with minimal loss of visual quality. Our experimental evaluation shows superior or competitive results with state-of-the art methods while obtaining large training speedup, using a simple model, and achieving real-time rendering.
+
+1189
+Real-Time Dense 3D Mapping of Underwater Environments
+2023-04-05
+This paper addresses real-time dense 3D reconstruction for a resource-constrained Autonomous Underwater Vehicle (AUV). Underwater vision-guided operations are among the most challenging as they combine 3D motion in the presence of external forces, limited visibility, and absence of global positioning. Obstacle avoidance and effective path planning require online dense reconstructions of the environment. Autonomous operation is central to environmental monitoring, marine archaeology, resource utilization, and underwater cave exploration. To address this problem, we propose to use SVIn2, a robust VIO method, together with a real-time 3D reconstruction pipeline. We provide extensive evaluation on four challenging underwater datasets. Our pipeline produces comparable reconstruction with that of COLMAP, the state-of-the-art offline 3D reconstruction method, at high frame rates on a single CPU.
+
+1279
+Sequential Experimental Design for X-Ray CT Using Deep Reinforcement Learning
+2023-07-12
+In X-ray Computed Tomography (CT), projections from many angles are acquired and used for 3D reconstruction. To make CT suitable for in-line quality control, reducing the number of angles while maintaining reconstruction quality is necessary. Sparse-angle tomography is a popular approach for obtaining 3D reconstructions from limited data. To optimize its performance, one can adapt scan angles sequentially to select the most informative angles for each scanned object. Mathematically, this corresponds to solving and optimal experimental design (OED) problem. OED problems are high-dimensional, non-convex, bi-level optimization problems that cannot be solved online, i.e., during the scan. To address these challenges, we pose the OED problem as a partially observable Markov decision process in a Bayesian framework, and solve it through deep reinforcement learning. The approach learns efficient non-greedy policies to solve a given class of OED problems through extensive offline training rather than solving a given OED problem directly via numerical optimization. As such, the trained policy can successfully find the most informative scan angles online. We use a policy training method based on the Actor-Critic approach and evaluate its performance on 2D tomography with synthetic data.
+

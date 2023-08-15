@@ -1,0 +1,373 @@
+0
+Efficient and accurate monitoring of the depth information in a Wireless Multimedia Sensor Network based surveillance
+2017-06-25
+Wireless Multimedia Sensor Network (WMSN) is a promising technology capturing
+rich multimedia data like audio and video, which can be useful to monitor an
+environment under surveillance. However, many scenarios in real time monitoring
+requires 3D depth information. In this research work, we propose to use the
+disparity map that is computed from two or multiple images, in order to monitor
+the depth information in an object or event under surveillance using WMSN. Our
+system is based on distributed wireless sensors allowing us to notably reduce
+the computational time needed for 3D depth reconstruction, thus permitting the
+success of real time solutions. Each pair of sensors will capture images for a
+targeted place/object and will operate a Stereo Matching in order to create a
+Disparity Map. Disparity maps will give us the ability to decrease traffic on
+the bandwidth, because they are of low size. This will increase WMSN lifetime.
+Any event can be detected after computing the depth value for the target object
+in the scene, and also 3D scene reconstruction can be achieved with a disparity
+map and some reference(s) image(s) taken by the node(s).
+
+1
+Have a Look at What I See
+2015-05-19
+We propose a method for guiding a photographer to rotate her/his smartphone
+camera to obtain an image that overlaps with another image of the same scene.
+The other image is taken by another photographer from a different viewpoint.
+Our method is applicable even when the images do not have overlapping fields of
+view. Straightforward applications of our method include sharing attention to
+regions of interest for social purposes, or adding missing images to improve
+structure for motion results. Our solution uses additional images of the scene,
+which are often available since many people use their smartphone cameras
+regularly. These images may be available online from other photographers who
+are present at the scene. Our method avoids 3D scene reconstruction; it relies
+instead on a new representation that consists of the spatial orders of the
+scene points on two axes, x and y. This representation allows a sequence of
+points to be chosen efficiently and projected onto the photographers images,
+using epipolar point transfer. Overlaying these epipolar lines on the live
+preview of the camera produces a convenient interface to guide the user. The
+method was tested on challenging datasets of images and succeeded in guiding a
+photographer from one view to a non-overlapping destination view.
+
+2
+Automatic Objects Removal for Scene Completion
+2015-01-23
+With the explosive growth of web-based cameras and mobile devices, billions
+of photographs are uploaded to the internet. We can trivially collect a huge
+number of photo streams for various goals, such as 3D scene reconstruction and
+other big data applications. However, this is not an easy task due to the fact
+the retrieved photos are neither aligned nor calibrated. Furthermore, with the
+occlusion of unexpected foreground objects like people, vehicles, it is even
+more challenging to find feature correspondences and reconstruct realistic
+scenes. In this paper, we propose a structure based image completion algorithm
+for object removal that produces visually plausible content with consistent
+structure and scene texture. We use an edge matching technique to infer the
+potential structure of the unknown region. Driven by the estimated structure,
+texture synthesis is performed automatically along the estimated curves. We
+evaluate the proposed method on different types of images: from highly
+structured indoor environment to the natural scenes. Our experimental results
+demonstrate satisfactory performance that can be potentially used for
+subsequent big data processing: 3D scene reconstruction and location
+recognition.
+
+3
+Structure Preserving Large Imagery Reconstruction
+2014-09-13
+With the explosive growth of web-based cameras and mobile devices, billions
+of photographs are uploaded to the internet. We can trivially collect a huge
+number of photo streams for various goals, such as image clustering, 3D scene
+reconstruction, and other big data applications. However, such tasks are not
+easy due to the fact the retrieved photos can have large variations in their
+view perspectives, resolutions, lighting, noises, and distortions.
+Fur-thermore, with the occlusion of unexpected objects like people, vehicles,
+it is even more challenging to find feature correspondences and reconstruct
+re-alistic scenes. In this paper, we propose a structure-based image completion
+algorithm for object removal that produces visually plausible content with
+consistent structure and scene texture. We use an edge matching technique to
+infer the potential structure of the unknown region. Driven by the estimated
+structure, texture synthesis is performed automatically along the estimated
+curves. We evaluate the proposed method on different types of images: from
+highly structured indoor environment to natural scenes. Our experimental
+results demonstrate satisfactory performance that can be potentially used for
+subsequent big data processing, such as image localization, object retrieval,
+and scene reconstruction. Our experiments show that this approach achieves
+favorable results that outperform existing state-of-the-art techniques.
+
+4
+Consistent Generative Query Networks
+2018-07-05
+Stochastic video prediction models take in a sequence of image frames, and
+generate a sequence of consecutive future image frames. These models typically
+generate future frames in an autoregressive fashion, which is slow and requires
+the input and output frames to be consecutive. We introduce a model that
+overcomes these drawbacks by generating a latent representation from an
+arbitrary set of frames that can then be used to simultaneously and efficiently
+sample temporally consistent frames at arbitrary time-points. For example, our
+model can "jump" and directly sample frames at the end of the video, without
+sampling intermediate frames. Synthetic video evaluations confirm substantial
+gains in speed and functionality without loss in fidelity. We also apply our
+framework to a 3D scene reconstruction dataset. Here, our model is conditioned
+on camera location and can sample consistent sets of images for what an
+occluded region of a 3D scene might look like, even if there are multiple
+possibilities for what that region might contain. Reconstructions and videos
+are available at https://bit.ly/2O4Pc4R.
+
+5
+Towards an Embodied Semantic Fovea: Semantic 3D scene reconstruction from ego-centric eye-tracker videos
+2018-07-27
+Incorporating the physical environment is essential for a complete
+understanding of human behavior in unconstrained every-day tasks. This is
+especially important in ego-centric tasks where obtaining 3 dimensional
+information is both limiting and challenging with the current 2D video analysis
+methods proving insufficient. Here we demonstrate a proof-of-concept system
+which provides real-time 3D mapping and semantic labeling of the local
+environment from an ego-centric RGB-D video-stream with 3D gaze point
+estimation from head mounted eye tracking glasses. We augment existing work in
+Semantic Simultaneous Localization And Mapping (Semantic SLAM) with collected
+gaze vectors. Our system can then find and track objects both inside and
+outside the user field-of-view in 3D from multiple perspectives with reasonable
+accuracy. We validate our concept by producing a semantic map from images of
+the NYUv2 dataset while simultaneously estimating gaze position and gaze
+classes from recorded gaze data of the dataset images.
+
+6
+CNN based dense underwater 3D scene reconstruction by transfer learning using bubble database
+2018-11-21
+Dense 3D shape acquisition of swimming human or live fish is an important
+research topic for sports, biological science and so on. For this purpose,
+active stereo sensor is usually used in the air, however it cannot be applied
+to the underwater environment because of refraction, strong light attenuation
+and severe interference of bubbles. Passive stereo is a simple solution for
+capturing dynamic scenes at underwater environment, however the shape with
+textureless surfaces or irregular reflections cannot be recovered. Recently,
+the stereo camera pair with a pattern projector for adding artificial textures
+on the objects is proposed. However, to use the system for underwater
+environment, several problems should be compensated, i.e., disturbance by
+fluctuation and bubbles. Simple solution is to use convolutional neural network
+for stereo to cancel the effects of bubbles and/or water fluctuation. Since it
+is not easy to train CNN with small size of database with large variation, we
+develop a special bubble generation device to efficiently create real bubble
+database of multiple size and density. In addition, we propose a transfer
+learning technique for multi-scale CNN to effectively remove bubbles and
+projected-patterns on the object. Further, we develop a real system and
+actually captured live swimming human, which has not been done before.
+Experiments are conducted to show the effectiveness of our method compared with
+the state of the art techniques.
+
+7
+Real-time Indoor Scene Reconstruction with RGBD and Inertia Input
+2018-12-07
+Camera motion estimation is a key technique for 3D scene reconstruction and
+Simultaneous localization and mapping (SLAM). To make it be feasibly achieved,
+previous works usually assume slow camera motions, which limits its usage in
+many real cases. We propose an end-to-end 3D reconstruction system which
+combines color, depth and inertial measurements to achieve robust
+reconstruction with fast sensor motions. Our framework extends Kalman filter to
+fuse the three kinds of information and involve an iterative method to jointly
+optimize feature correspondences, camera poses and scene geometry. We also
+propose a novel geometry-aware patch deformation technique to adapt the feature
+appearance in image domain, leading to a more accurate feature matching under
+fast camera motions. Experiments show that our patch deformation method
+improves the accuracy of feature tracking, and our 3D reconstruction
+outperforms the state-of-the-art solutions under fast camera motions.
+
+9
+Cascaded Classification Models: Combining Models for Holistic Scene Understanding
+2008-12-01
+One of the original goals of computer vision was to fully understand a natural scene. This requires solving several problems simultaneously, including object detection, labeling of meaningful regions, and 3d reconstruction. While great progress has been made in tackling each of these problems in isolation, only recently have researchers again been considering the difficult task of assembling various methods to the mutual benefit of all. We consider learning a set of such classification models in such a way that they both solve their own problem and help each other. We develop a framework known as Cascaded Classification Models (CCM), where repeated instantiations of these classifiers are coupled by their input/output variables in a cascade that improves performance at each level. Our method requires only a limited âblack boxâ interface with the models, allowing us to use very sophisticated, state-of-the-art classifiers without having to look under the hood. We demonstrate the effectiveness of our method on a large set of natural images by combining the subtasks of scene categorization, object detection, multiclass image segmentation, and 3d scene reconstruction.
+
+10
+Consistent Jumpy Predictions for Videos and Scenes
+2019-05-01
+Stochastic video prediction models take in a sequence of image frames, and generate a sequence of consecutive future image frames. These models typically generate future frames in an autoregressive fashion, which is slow and requires the input and output frames to be consecutive. We introduce a model that overcomes these drawbacks by generating a latent representation from an arbitrary set of frames that can then be used to simultaneously and efficiently sample temporally consistent frames at arbitrary time-points. For example, our model can "jump" and directly sample frames at the end of the video, without sampling intermediate frames. Synthetic video evaluations confirm substantial gains in speed and functionality without loss in fidelity. We also apply our framework to a 3D scene reconstruction dataset. Here, our model is conditioned on camera location and can sample consistent sets of images for what an occluded region of a 3D scene might look like, even if there are multiple possibilities for what that region might contain. Reconstructions and videos are available at https://bit.ly/2O4Pc4R.
+
+
+12
+Joint 3D Scene Reconstruction and Class Segmentation
+2013-06-01
+Both image segmentation and dense 3D modeling from images represent an intrinsically ill-posed problem. Strong regularizers are therefore required to constrain the solutions from being 'too noisy'. Unfortunately, these priors generally yield overly smooth reconstructions and/or segmentations in certain regions whereas they fail in other areas to constrain the solution sufficiently. In this paper we argue that image segmentation and dense 3D reconstruction contribute valuable information to each other's task. As a consequence, we propose a rigorous mathematical framework to formulate and solve a joint segmentation and dense reconstruction problem. Image segmentations provide geometric cues about which surface orientations are more likely to appear at a certain location in space whereas a dense 3D reconstruction yields a suitable regularization for the segmentation problem by lifting the labeling from 2D images to 3D space. We show how appearance-based cues and 3D surface orientation priors can be learned from training data and subsequently used for class-specific regularization. Experimental results on several real data sets highlight the advantages of our joint formulation.
+
+13
+3D Scene Reconstruction with Multi-layer Depth and Epipolar Transformers
+2019-02-18
+We tackle the problem of automatically reconstructing a complete 3D model of a scene from a single RGB image. This challenging task requires inferring the shape of both visible and occluded surfaces. Our approach utilizes viewer-centered, multi-layer representation of scene geometry adapted from recent methods for single object shape completion. To improve the accuracy of view-centered representations for complex scenes, we introduce a novel "Epipolar Feature Transformer" that transfers convolutional network features from an input view to other virtual camera viewpoints, and thus better covers the 3D scene geometry. Unlike existing approaches that first detect and localize objects in 3D, and then infer object shape using category-specific models, our approach is fully convolutional, end-to-end differentiable, and avoids the resolution and memory limitations of voxel representations. We demonstrate the advantages of multi-layer depth representations and epipolar feature transformers on the reconstruction of a large database of indoor scenes.
+
+14
+Multi-scale Cross-form Pyramid Network for Stereo Matching
+2019-04-25
+Stereo matching plays an indispensable part in autonomous driving, robotics and 3D scene reconstruction. We propose a novel deep learning architecture, which called CFP-Net, a Cross-Form Pyramid stereo matching network for regressing disparity from a rectified pair of stereo images. The network consists of three modules: Multi-Scale 2D local feature extraction module, Cross-form spatial pyramid module and Multi-Scale 3D Feature Matching and Fusion module. The Multi-Scale 2D local feature extraction module can extract enough multi-scale features. The Cross-form spatial pyramid module aggregates the context information in different scales and locations to form a cost volume. Moreover, it is proved to be more effective than SPP and ASPP in ill-posed regions. The Multi-Scale 3D feature matching and fusion module is proved to regularize the cost volume using two parallel 3D deconvolution structure with two different receptive fields. Our proposed method has been evaluated on the Scene Flow and KITTI datasets. It achieves state-of-the-art performance on the KITTI 2012 and 2015 benchmarks.
+
+15
+TriDepth: Triangular Patch-based Deep Depth Prediction
+2019-05-03
+We propose a novel and efficient representation for single-view depth estimation using Convolutional Neural Networks (CNNs). Point-cloud is generally used for CNN-based 3D scene reconstruction; however it has some drawbacks: (1) it is redundant as a representation for planar surfaces, and (2) no spatial relationships between points are available (e.g, texture and surface). As a more efficient representation, we introduce a triangular-patch-cloud, which represents the surface of the 3D structure using a set of triangular patches, and propose a CNN framework for its 3D structure estimation. In our framework, we create it by separating all the faces in a 2D mesh, which are determined adaptively from the input image, and estimate depths and normals of all the faces. Using a common RGBD-dataset, we show that our representation has a better or comparable performance than the existing point-cloud-based methods, although it has much less parameters.
+
+16
+World From Blur
+2019-06-01
+What can we tell from a single motion-blurred image? We show in this paper that a  3D  scene can be revealed. Unlike prior methods that focus on producing a deblurred image, we propose to estimate and take advantage of the hidden message of a blurred image, the relative motion trajectory, to restore the 3D scene collapsed during the exposure process. To this end, we train a deep network that jointly predicts the motion trajectory, the deblurred image, and the depth one, all of which in turn form a collaborative and self-supervised cycle that supervise one another to reproduce the input blurred image,  enabling plausible 3D scene reconstruction from a single blurred image. We test the proposed model on several large-scale datasets we constructed based on benchmarks, as well as real-world blurred images, and show that it yields very encouraging quantitative and qualitative results.
+
+17
+Neural RGB(r)D Sensing: Depth and Uncertainty From a Video Camera
+2019-06-01
+Depth sensing is crucial for 3D reconstruction and scene understanding. Active depth sensors provide dense metric measurements, but often suffer from limitations such as restricted operating ranges, low spatial resolution, sensor interference, and high power consumption. In this paper, we propose a deep learning (DL) method to estimate per-pixel depth and its uncertainty continuously from a monocular video stream, with the goal of effectively turning an RGB camera into an RGB-D camera. Unlike prior DL-based methods, we estimate a depth probability distribution for each pixel rather than a single depth value, leading to an estimate of a 3D depth probability volume for each input frame. These depth probability volumes are accumulated over time under a Bayesian filtering framework as more incoming frames are processed sequentially, which effectively reduces depth uncertainty and improves accuracy, robustness, and temporal stability. Compared to prior work, the proposed approach achieves more accurate and stable results, and generalizes better to new datasets. Experimental results also show the output of our approach can be directly fed into classical RGB-D based 3D scanning methods for 3D scene reconstruction. 
+
+19
+Appearance and Shape from Water Reflection
+2019-06-25
+This paper introduces single-image geometric and appearance reconstruction from water reflection photography, i.e., images capturing direct and water-reflected real-world scenes. Water reflection offers an additional viewpoint to the direct sight, collectively forming a stereo pair. The water-reflected scene, however, includes internally scattered and reflected environmental illumination in addition to the scene radiance, which precludes direct stereo matching. We derive a principled iterative method that disentangles this scene radiometry and geometry for reconstructing 3D scene structure as well as its high-dynamic range appearance. In the presence of waves, we simultaneously recover the wave geometry as surface normal perturbations of the water surface. Most important, we show that the water reflection enables calibration of the camera. In other words, for the first time, we show that capturing a direct and water-reflected scene in a single exposure forms a self-calibrating HDR catadioptric stereo camera. We demonstrate our method on a number of images taken in the wild. The results demonstrate a new means for leveraging this accidental catadioptric camera.
+
+20
+Long Range 3D with Quadocular Thermal (LWIR) Camera
+2019-11-16
+Long Wave Infrared (LWIR) cameras provide images regardles of the ambient illumination, they tolerate fog and are not blinded by the incoming car headlights. These features make LWIR cameras attractive for autonomous navigation, security and military applications. Thermal images can be used similarly to the visible range ones, including 3D scene reconstruction with two or more such cameras mounted on a rigid frame. There are two additional challenges for this spectral range: lower image resolution and lower contrast of the textures. In this work, we demonstrate quadocular LWIR camera setup, calibration, image capturing and processing that result in long range 3D perception with 0.077 pix disparity error over 90% of the depth map. With low resolution (160 x 120) LWIR sensors we achieved 10% range accuracy at 28 m with 56 degrees horizontal field of view (HFoV) and 150 mm baseline. Scaled to the now-standard 640 x 512 resolution and 200 mm baseline suitable for head-mounted application the result would be 10% accuracy at 130 m.
+
+21
+RGB-D Odometry and SLAM
+2020-01-19
+The emergence of modern RGB-D sensors had a significant impact in many application fields, including robotics, augmented reality (AR) and 3D scanning. They are low-cost, low-power and low-size alternatives to traditional range sensors such as LiDAR. Moreover, unlike RGB cameras, RGB-D sensors provide the additional depth information that removes the need of frame-by-frame triangulation for 3D scene reconstruction. These merits have made them very popular in mobile robotics and AR, where it is of great interest to estimate ego-motion and 3D scene structure. Such spatial understanding can enable robots to navigate autonomously without collisions and allow users to insert virtual entities consistent with the image stream. In this chapter, we review common formulations of odometry and Simultaneous Localization and Mapping (known by its acronym SLAM) using RGB-D stream input. The two topics are closely related, as the former aims to track the incremental camera motion with respect to a local map of the scene, and the latter to jointly estimate the camera trajectory and the global map with consistency. In both cases, the standard approaches minimize a cost function using nonlinear optimization techniques. This chapter consists of three main parts: In the first part, we introduce the basic concept of odometry and SLAM and motivate the use of RGB-D sensors. We also give mathematical preliminaries relevant to most odometry and SLAM algorithms. In the second part, we detail the three main components of SLAM systems: camera pose tracking, scene mapping and loop closing. For each component, we describe different approaches proposed in the literature. In the final part, we provide a brief discussion on advanced research topics with the references to the state-of-the-art.
+
+24
+Privacy-Preserving Image Features via Adversarial Affine Subspace Embeddings
+2020-06-11
+Many computer vision systems require users to upload image features to the cloud for processing and storage. These features can be exploited to recover sensitive information about the scene or subjects, e.g., by reconstructing the appearance of the original image. To address this privacy concern, we propose a new privacy-preserving feature representation. The core idea of our work is to drop constraints from each feature descriptor by embedding it within an affine subspace containing the original feature as well as adversarial feature samples. Feature matching on the privacy-preserving representation is enabled based on the notion of subspace-to-subspace distance. We experimentally demonstrate the effectiveness of our method and its high practical relevance for the applications of visual localization and mapping as well as face authentication. Compared to the original features, our approach makes it significantly more difficult for an adversary to recover private information.
+
+25
+Contact Area Detector using Cross View Projection Consistency for COVID-19 Projects
+2020-08-18
+The ability to determine what parts of objects and surfaces people touch as they go about their daily lives would be useful in understanding how the COVID-19 virus spreads. To determine whether a person has touched an object or surface using visual data, images, or videos, is a hard problem. Computer vision 3D reconstruction approaches project objects and the human body from the 2D image domain to 3D and perform 3D space intersection directly. However, this solution would not meet the accuracy requirement in applications due to projection error. Another standard approach is to train a neural network to infer touch actions from the collected visual data. This strategy would require significant amounts of training data to generalize over scale and viewpoint variations. A different approach to this problem is to identify whether a person has touched a defined object. In this work, we show that the solution to this problem can be straightforward. Specifically, we show that the contact between an object and a static surface can be identified by projecting the object onto the static surface through two different viewpoints and analyzing their 2D intersection. The object contacts the surface when the projected points are close to each other; we call this cross view projection consistency. Instead of doing 3D scene reconstruction or transfer learning from deep networks, a mapping from the surface in the two camera views to the surface space is the only requirement. For planar space, this mapping is the Homography transformation. This simple method can be easily adapted to real-life applications. In this paper, we apply our method to do office occupancy detection for studying the COVID-19 transmission pattern from an office desk in a meeting room using the contact information.
+
+26
+Image-to-Voxel Model Translation for 3D Scene Reconstruction and Segmentation
+None
+Objects class, depth, and shape are instantly reconstructed by a human looking at a 2D image. While modern deep models solve each of these challenging tasks separately, they struggle to perform simultaneous scene 3D reconstruction and segmentation. We propose a single shot image-to-semantic voxel model translation framework. We train a generator adversarially against a discriminator that verifies the object's poses. Furthermore, trapezium-shaped voxels, volumetric residual blocks, and 2D-to-3D skip connections facilitate our model learning explicit reasoning about 3D scene structure. We collected a SemanticVoxels dataset with 116k images, ground-truth semantic voxel models, depth maps, and 6D object poses. Experiments on ShapeNet and our SemanticVoxels datasets demonstrate that our framework achieves and surpasses state-of-the-art in the reconstruction of scenes with multiple non-rigid objects of different classes. We made our model and dataset publicly available
+
+28
+Learning to Adapt Multi-View Stereo by Self-Supervision
+2020-09-28
+3D scene reconstruction from multiple views is an important classical problem in computer vision. Deep learning based approaches have recently demonstrated impressive reconstruction results. When training such models, self-supervised methods are favourable since they do not rely on ground truth data which would be needed for supervised training and is often difficult to obtain. Moreover, learned multi-view stereo reconstruction is prone to environment changes and should robustly generalise to different domains. We propose an adaptive learning approach for multi-view stereo which trains a deep neural network for improved adaptability to new target domains. We use model-agnostic meta-learning (MAML) to train base parameters which, in turn, are adapted for multi-view stereo on new domains through self-supervised training. Our evaluations demonstrate that the proposed adaptation method is effective in learning self-supervised multi-view stereo reconstruction in new domains.
+
+30
+Polka Lines: Learning Structured Illumination and Reconstruction for Active Stereo
+2020-11-26
+Active stereo cameras that recover depth from structured light captures have become a cornerstone sensor modality for 3D scene reconstruction and understanding tasks across application domains. Existing active stereo cameras project a pseudo-random dot pattern on object surfaces to extract disparity independently of object texture. Such hand-crafted patterns are designed in isolation from the scene statistics, ambient illumination conditions, and the reconstruction method. In this work, we propose the first method to jointly learn structured illumination and reconstruction, parameterized by a diffractive optical element and a neural network, in an end-to-end fashion. To this end, we introduce a novel differentiable image formation model for active stereo, relying on both wave and geometric optics, and a novel trinocular reconstruction network. The jointly optimized pattern, which we dub "Polka Lines," together with the reconstruction network, achieve state-of-the-art active-stereo depth estimates across imaging conditions. We validate the proposed method in simulation and on a hardware prototype, and show that our method outperforms existing active stereo systems.
+
+31
+3D Scene Based Beam Selection for mmWave Communications
+2019-11-19
+In this paper, we present a novel framework of 3D scene based beam selection for mmWave communications that relies only on the environmental data and deep learning techniques. Different from other out-of-band side-information aided communication strategies, the proposed one fully utilizes the environmental information, e.g., the shape, the position, and even the materials of the surrounding buildings/cars/trees that are obtained from 3D scene reconstruction. Specifically, we build the neural networks with the input as point cloud of the 3D scene and the output as the beam indices. Compared with the LIDAR aided technique, the reconstructed 3D scene here is achieved from multiple images taken offline from cameras and thus significantly lowers down the cost and makes itself applicable for small mobile terminals. Simulation results show that the proposed 3D scene based beam selection can outperform the LIDAR method in terms of accuracy.
+
+37
+VolumeFusion: Deep Depth Fusion for 3D Scene Reconstruction
+2021-08-19
+To reconstruct a 3D scene from a set of calibrated views, traditional multi-view stereo techniques rely on two distinct stages: local depth maps computation and global depth maps fusion. Recent studies concentrate on deep neural architectures for depth estimation by using conventional depth fusion method or direct 3D reconstruction network by regressing Truncated Signed Distance Function (TSDF). In this paper, we advocate that replicating the traditional two stages framework with deep neural networks improves both the interpretability and the accuracy of the results. As mentioned, our network operates in two steps: 1) the local computation of the local depth maps with a deep MVS technique, and, 2) the depth maps and images' features fusion to build a single TSDF volume. In order to improve the matching performance between images acquired from very different viewpoints (e.g., large-baseline and rotations), we introduce a rotation-invariant 3D convolution kernel called PosedConv. The effectiveness of the proposed architecture is underlined via a large series of experiments conducted on the ScanNet dataset where our approach compares favorably against both traditional and deep learning techniques.
+
+38
+3D Reconstruction from public webcams
+2021-08-21
+We investigate the possibility of 3D scene reconstruction from two or more overlapping webcam streams. A large, and growing, number of webcams observe places of interest and are publicly accessible. The question naturally arises: can we make use of this free data source for 3D computer vision? It turns out that the task to reconstruct scene structure from webcam streams is very different from standard structure-from-motion (SfM), and conventional SfM pipelines fail. In the webcam setting there are very few views of the same scene, in most cases only the minimum of two. These viewpoints often have large baselines and/or scale differences, their overlap is rather limited, and besides unknown internal and external calibration also their temporal synchronisation is unknown. On the other hand, they record rather large fields of view continuously over long time spans, so that they regularly observe dynamic objects moving through the scene. We show how to leverage recent advances in several areas of computer vision to adapt SfM reconstruction to this particular scenario and reconstruct the unknown camera poses, the 3D scene structure, and the 3D trajectories of dynamic objects.
+
+39
+Semantic Dense Reconstruction with Consistent Scene Segments
+2021-09-30
+In this paper, a method for dense semantic 3D scene reconstruction from an RGB-D sequence is proposed to solve high-level scene understanding tasks. First, each RGB-D pair is consistently segmented into 2D semantic maps based on a camera tracking backbone that propagates objects' labels with high probabilities from full scans to corresponding ones of partial views. Then a dense 3D mesh model of an unknown environment is incrementally generated from the input RGB-D sequence. Benefiting from 2D consistent semantic segments and the 3D model, a novel semantic projection block (SP-Block) is proposed to extract deep feature volumes from 2D segments of different views. Moreover, the semantic volumes are fused into deep volumes from a point cloud encoder to make the final semantic segmentation. Extensive experimental evaluations on public datasets show that our system achieves accurate 3D dense reconstruction and state-of-the-art semantic prediction performances simultaneously.
+
+40
+Echo-Reconstruction: Audio-Augmented 3D Scene Reconstruction
+2021-10-05
+Reflective and textureless surfaces such as windows, mirrors, and walls can be a challenge for object and scene reconstruction. These surfaces are often poorly reconstructed and filled with depth discontinuities and holes, making it difficult to cohesively reconstruct scenes that contain these planar discontinuities. We propose Echoreconstruction, an audio-visual method that uses the reflections of sound to aid in geometry and audio reconstruction for virtual conferencing, teleimmersion, and other AR/VR experience. The mobile phone prototype emits pulsed audio, while recording video for RGB-based 3D reconstruction and audio-visual classification. Reflected sound and images from the video are input into our audio (EchoCNN-A) and audio-visual (EchoCNN-AV) convolutional neural networks for surface and sound source detection, depth estimation, and material classification. The inferences from these classifications enhance scene 3D reconstructions containing open spaces and reflective surfaces by depth filtering, inpainting, and placement of unmixed sound sources in the scene. Our prototype, VR demo, and experimental results from real-world and virtual scenes with challenging surfaces and sound indicate high success rates on classification of material, depth estimation, and closed/open surfaces, leading to considerable visual and audio improvement in 3D scenes (see Figure 1).
+
+41
+Learning Surface Parameterization for Document Image Unwarping
+2021-09-29
+In this paper, we present a novel approach to learn texture mapping for a 3D surface and apply it to document image unwarping. We propose an efficient method to learn surface parameterization by learning a continuous bijective mapping between 3D surface positions and 2D texture-space coordinates. Our surface parameterization network can be conveniently plugged into a differentiable rendering pipeline and trained using multi-view images and rendering loss. Recent work on differentiable rendering techniques for implicit surfaces has shown high-quality 3D scene reconstruction and view synthesis results. However, these methods typically learn the appearance color as a function of the surface points and lack explicit surface parameterization. Thus they do not allow texture map extraction or texture editing. By introducing explicit surface parameterization and learning with a recent differentiable renderer for implicit surfaces, we demonstrate state-of-the-art document-unwarping via texture extraction. We show that our approach can reconstruct high-frequency textures for arbitrary document shapes in both synthetic and real scenarios. We also demonstrate the usefulness of our system by applying it to document texture editing.
+
+42
+Differentiable Rendering with Perturbed Optimizers
+2021-10-18
+Reasoning about 3D scenes from their 2D image projections is one of the core problems in computer vision. Solutions to this inverse and ill-posed problem typically involve a search for models that best explain observed image data. Notably, images depend both on the properties of observed scenes and on the process of image formation. Hence, if optimization techniques should be used to explain images, it is crucial to design differentiable functions for the projection of 3D scenes into images, also known as differentiable rendering. Previous approaches to differentiable rendering typically replace non-differentiable operations by smooth approximations, impacting the subsequent 3D estimation. In this paper, we take a more general approach and study differentiable renderers through the prism of randomized optimization and the related notion of perturbed optimizers. In particular, our work highlights the link between some well-known differentiable renderer formulations and randomly smoothed optimizers, and introduces differentiable perturbed renderers. We also propose a variance reduction mechanism to alleviate the computational burden inherent to perturbed optimizers and introduce an adaptive scheme to automatically adjust the smoothing parameters of the rendering process. We apply our method to 3D scene reconstruction and demonstrate its advantages on the tasks of 6D pose estimation and 3D mesh reconstruction. By providing informative gradients that can be used as a strong supervisory signal, we demonstrate the benefits of perturbed renderers to obtain more accurate solutions when compared to the state-of-the-art alternatives using smooth gradient approximations.
+
+44
+Deblur-NeRF: Neural Radiance Fields from Blurry Images
+2021-11-29
+Neural Radiance Field (NeRF) has gained considerable attention recently for 3D scene reconstruction and novel view synthesis due to its remarkable synthesis quality. However, image blurriness caused by defocus or motion, which often occurs when capturing scenes in the wild, significantly degrades its reconstruction quality. To address this problem, We propose Deblur-NeRF, the first method that can recover a sharp NeRF from blurry input. We adopt an analysis-by-synthesis approach that reconstructs blurry views by simulating the blurring process, thus making NeRF robust to blurry inputs. The core of this simulation is a novel Deformable Sparse Kernel (DSK) module that models spatially-varying blur kernels by deforming a canonical sparse kernel at each spatial location. The ray origin of each kernel point is jointly optimized, inspired by the physical blurring process. This module is parameterized as an MLP that has the ability to be generalized to various blur types. Jointly optimizing the NeRF and the DSK module allows us to restore a sharp NeRF. We demonstrate that our method can be used on both camera motion blur and defocus blur: the two most common types of blur in real scenes. Evaluation results on both synthetic and real-world data show that our method outperforms several baselines. The synthetic and real datasets along with the source code is publicly available at https://limacv.github.io/deblurnerf/
+
+46
+What's Behind the Couch? Directed Ray Distance Functions (DRDF) for 3D Scene Reconstruction
+2021-12-08
+We present an approach for full 3D scene reconstruction from a single unseen image. We train on dataset of realistic non-watertight scans of scenes. Our approach predicts a distance function, since these have shown promise in handling complex topologies and large spaces. We identify and analyze two key challenges for predicting such image conditioned distance functions that have prevented their success on real 3D scene data. First, we show that predicting a conventional scene distance from an image requires reasoning over a large receptive field. Second, we analytically show that the optimal output of the network trained to predict these distance functions does not obey all the distance function properties. We propose an alternate distance function, the Directed Ray Distance Function (DRDF), that tackles both challenges. We show that a deep network trained to predict DRDFs outperforms all other methods quantitatively and qualitatively on 3D reconstruction from single image on Matterport3D, 3DFront, and ScanNet.
+
+47
+Light field Rectification based on relative pose estimation
+2022-01-29
+Hand-held light field (LF) cameras have unique advantages in computer vision such as 3D scene reconstruction and depth estimation. However, the related applications are limited by the ultra-small baseline, e.g., leading to the extremely low depth resolution in reconstruction. To solve this problem, we propose to rectify LF to obtain a large baseline. Specifically, the proposed method aligns two LFs captured by two hand-held LF cameras with a random relative pose, and extracts the corresponding row-aligned sub-aperture images (SAIs) to obtain an LF with a large baseline. For an accurate rectification, a method for pose estimation is also proposed, where the relative rotation and translation between the two LF cameras are estimated. The proposed pose estimation minimizes the degree of freedom (DoF) in the LF-point-LF-point correspondence model and explicitly solves this model in a linear way. The proposed pose estimation outperforms the state-of-the-art algorithms by providing more accurate results to support rectification. The significantly improved depth resolution in 3D reconstruction demonstrates the effectiveness of the proposed LF rectification.
+
+51
+3D scene reconstruction from monocular spherical video with motion parallax
+2022-06-14
+In this paper, we describe a method to capture nearly entirely spherical (360 degree) depth information using two adjacent frames from a single spherical video with motion parallax. After illustrating a spherical depth information retrieval using two spherical cameras, we demonstrate monocular spherical stereo by using stabilized first-person video footage. Experiments demonstrated that the depth information was retrieved on up to 97% of the entire sphere in solid angle. At a speed of 30 km/h, we were able to estimate the depth of an object located over 30 m from the camera. We also reconstructed the 3D structures (point cloud) using the obtained depth data and confirmed the structures can be clearly observed. We can apply this method to 3D structure retrieval of surrounding environments such as 1) previsualization, location hunting/planning of a film, 2) real scene/computer graphics synthesis and 3) motion capture. Thanks to its simplicity, this method can be applied to various videos. As there is no pre-condition other than to be a 360 video with motion parallax, we can use any 360 videos including those on the Internet to reconstruct the surrounding environments. The cameras can be lightweight enough to be mounted on a drone. We also demonstrated such applications.
+
+53
+NeurAR: Neural Uncertainty for Autonomous 3D Reconstruction with Implicit Neural Representations
+2022-07-22
+Implicit neural representations have shown compelling results in offline 3D reconstruction and also recently demonstrated the potential for online SLAM systems. However, applying them to autonomous 3D reconstruction, where a robot is required to explore a scene and plan a view path for the reconstruction, has not been studied. In this paper, we explore for the first time the possibility of using implicit neural representations for autonomous 3D scene reconstruction by addressing two key challenges: 1) seeking a criterion to measure the quality of the candidate viewpoints for the view planning based on the new representations, and 2) learning the criterion from data that can generalize to different scenes instead of a hand-crafting one. To solve the challenges, firstly, a proxy of Peak Signal-to-Noise Ratio (PSNR) is proposed to quantify a viewpoint quality; secondly, the proxy is optimized jointly with the parameters of an implicit neural network for the scene. With the proposed view quality criterion from neural networks (termed as Neural Uncertainty), we can then apply implicit representations to autonomous 3D reconstruction. Our method demonstrates significant improvements on various metrics for the rendered image quality and the geometry quality of the reconstructed 3D models when compared with variants using TSDF or reconstruction without view planning. Project webpage https://kingteeloki-ran.github.io/NeurAR/
+
+54
+NeuMesh: Learning Disentangled Neural Mesh-based Implicit Field for Geometry and Texture Editing
+2022-07-25
+Very recently neural implicit rendering techniques have been rapidly evolved and shown great advantages in novel view synthesis and 3D scene reconstruction. However, existing neural rendering methods for editing purposes offer limited functionality, e.g., rigid transformation, or not applicable for fine-grained editing for general objects from daily lives. In this paper, we present a novel mesh-based representation by encoding the neural implicit field with disentangled geometry and texture codes on mesh vertices, which facilitates a set of editing functionalities, including mesh-guided geometry editing, designated texture editing with texture swapping, filling and painting operations. To this end, we develop several techniques including learnable sign indicators to magnify spatial distinguishability of mesh-based representation, distillation and fine-tuning mechanism to make a steady convergence, and the spatial-aware optimization strategy to realize precise texture editing. Extensive experiments and editing examples on both real and synthetic data demonstrate the superiority of our method on representation quality and editing ability. Code is available on the project webpage: https://zju3dv.github.io/neumesh/.
+
+55
+Learning Reconstructability for Drone Aerial Path Planning
+2022-09-21
+We introduce the first learning-based reconstructability predictor to improve view and path planning for large-scale 3D urban scene acquisition using unmanned drones. In contrast to previous heuristic approaches, our method learns a model that explicitly predicts how well a 3D urban scene will be reconstructed from a set of viewpoints. To make such a model trainable and simultaneously applicable to drone path planning, we simulate the proxy-based 3D scene reconstruction during training to set up the prediction. Specifically, the neural network we design is trained to predict the scene reconstructability as a function of the proxy geometry, a set of viewpoints, and optionally a series of scene images acquired in flight. To reconstruct a new urban scene, we first build the 3D scene proxy, then rely on the predicted reconstruction quality and uncertainty measures by our network, based off of the proxy geometry, to guide the drone path planning. We demonstrate that our data-driven reconstructability predictions are more closely correlated to the true reconstruction quality than prior heuristic measures. Further, our learned predictor can be easily integrated into existing path planners to yield improvements. Finally, we devise a new iterative view planning framework, based on the learned reconstructability, and show superior performance of the new planner when reconstructing both synthetic and real scenes.
+
+56
+OmniNeRF: Hybriding Omnidirectional Distance and Radiance fields for Neural Surface Reconstruction
+2022-09-27
+3D reconstruction from images has wide applications in Virtual Reality and Automatic Driving, where the precision requirement is very high. Ground-breaking research in the neural radiance field (NeRF) by utilizing Multi-Layer Perceptions has dramatically improved the representation quality of 3D objects. Some later studies improved NeRF by building truncated signed distance fields (TSDFs) but still suffer from the problem of blurred surfaces in 3D reconstruction. In this work, this surface ambiguity is addressed by proposing a novel way of 3D shape representation, OmniNeRF. It is based on training a hybrid implicit field of Omni-directional Distance Field (ODF) and neural radiance field, replacing the apparent density in NeRF with omnidirectional information. Moreover, we introduce additional supervision on the depth map to further improve reconstruction quality. The proposed method has been proven to effectively deal with NeRF defects at the edges of the surface reconstruction, providing higher quality 3D scene reconstruction results.
+
+57
+MonoNeuralFusion: Online Monocular Neural 3D Reconstruction with Geometric Priors
+2022-09-30
+High-fidelity 3D scene reconstruction from monocular videos continues to be challenging, especially for complete and fine-grained geometry reconstruction. The previous 3D reconstruction approaches with neural implicit representations have shown a promising ability for complete scene reconstruction, while their results are often over-smooth and lack enough geometric details. This paper introduces a novel neural implicit scene representation with volume rendering for high-fidelity online 3D scene reconstruction from monocular videos. For fine-grained reconstruction, our key insight is to incorporate geometric priors into both the neural implicit scene representation and neural volume rendering, thus leading to an effective geometry learning mechanism based on volume rendering optimization. Benefiting from this, we present MonoNeuralFusion to perform the online neural 3D reconstruction from monocular videos, by which the 3D scene geometry is efficiently generated and optimized during the on-the-fly 3D monocular scanning. The extensive comparisons with state-of-the-art approaches show that our MonoNeuralFusion consistently generates much better complete and fine-grained reconstruction results, both quantitatively and qualitatively.
+
+58
+Snapshot of Algebraic Vision
+2022-10-20
+In this survey article, we present interactions between algebraic geometry and computer vision, which have recently come under the header of Algebraic Vision. The subject has given new insights in multiple view geometry and its application to 3D scene reconstruction, and carried a host of novel problems and ideas back into algebraic geometry.
+
+59
+An Exploration of Neural Radiance Field Scene Reconstruction: Synthetic, Real-world and Dynamic Scenes
+2022-10-21
+This project presents an exploration into 3D scene reconstruction of synthetic and real-world scenes using Neural Radiance Field (NeRF) approaches. We primarily take advantage of the reduction in training and rendering time of neural graphic primitives multi-resolution hash encoding, to reconstruct static video game scenes and real-world scenes, comparing and observing reconstruction detail and limitations. Additionally, we explore dynamic scene reconstruction using Neural Radiance Fields for Dynamic Scenes(D-NeRF). Finally, we extend the implementation of D-NeRF, originally constrained to handle synthetic scenes to also handle real-world dynamic scenes.
+
+61
+SSR-2D: Semantic 3D Scene Reconstruction from 2D Images
+2023-02-07
+Most deep learning approaches to comprehensive semantic modeling of 3D indoor spaces require costly dense annotations in the 3D domain. In this work, we explore a central 3D scene modeling task, namely, semantic scene reconstruction without using any 3D annotations. The key idea of our approach is to design a trainable model that employs both incomplete 3D reconstructions and their corresponding source RGB-D images, fusing cross-domain features into volumetric embeddings to predict complete 3D geometry, color, and semantics with only 2D labeling which can be either manual or machine-generated. Our key technical innovation is to leverage differentiable rendering of color and semantics to bridge 2D observations and unknown 3D space, using the observed RGB images and 2D semantics as supervision, respectively. We additionally develop a learning pipeline and corresponding method to enable learning from imperfect predicted 2D labels, which could be additionally acquired by synthesizing in an augmented set of virtual training views complementing the original real captures, enabling more efficient self-supervision loop for semantics. In this work, we propose an end-to-end trainable solution jointly addressing geometry completion, colorization, and semantic mapping from limited RGB-D images, without relying on any 3D ground-truth information. Our method achieves state-of-the-art performance of semantic scene reconstruction on two large-scale benchmark datasets MatterPort3D and ScanNet, surpasses baselines even with costly 3D annotations. To our knowledge, our method is also the first 2D-driven method addressing completion and semantic segmentation of real-world 3D scans.
+
+62
+NICER-SLAM: Neural Implicit Scene Encoding for RGB SLAM
+2023-02-07
+Neural implicit representations have recently become popular in simultaneous localization and mapping (SLAM), especially in dense visual SLAM. However, previous works in this direction either rely on RGB-D sensors, or require a separate monocular SLAM approach for camera tracking and do not produce high-fidelity dense 3D scene reconstruction. In this paper, we present NICER-SLAM, a dense RGB SLAM system that simultaneously optimizes for camera poses and a hierarchical neural implicit map representation, which also allows for high-quality novel view synthesis. To facilitate the optimization process for mapping, we integrate additional supervision signals including easy-to-obtain monocular geometric cues and optical flow, and also introduce a simple warping loss to further enforce geometry consistency. Moreover, to further boost performance in complicated indoor scenes, we also propose a local adaptive transformation from signed distance functions (SDFs) to density in the volume rendering equation. On both synthetic and real-world datasets we demonstrate strong performance in dense mapping, tracking, and novel view synthesis, even competitive with recent RGB-D SLAM systems.
+
+64
+Cross-Dimensional Refined Learning for Real-Time 3D Visual Perception from Monocular Video
+2023-03-16
+We present a novel real-time capable learning method that jointly perceives a 3D scene's geometry structure and semantic labels. Recent approaches to real-time 3D scene reconstruction mostly adopt a volumetric scheme, where a truncated signed distance function (TSDF) is directly regressed. However, these volumetric approaches tend to focus on the global coherence of their reconstructions, which leads to a lack of local geometrical detail. To overcome this issue, we propose to leverage the latent geometrical prior knowledge in 2D image features by explicit depth prediction and anchored feature generation, to refine the occupancy learning in TSDF volume. Besides, we find that this cross-dimensional feature refinement methodology can also be adopted for the semantic segmentation task. Hence, we proposed an end-to-end cross-dimensional refinement neural network (CDRNet) to extract both 3D mesh and 3D semantic labeling in real time. The experiment results show that the proposed method achieves state-of-the-art 3D perception efficiency on multiple datasets, which indicates the great potential of our method for industrial applications.
+
+67
+Dehazing-NeRF: Neural Radiance Fields from Hazy Images
+2023-04-22
+Neural Radiance Field (NeRF) has received much attention in recent years due to the impressively high quality in 3D scene reconstruction and novel view synthesis. However, image degradation caused by the scattering of atmospheric light and object light by particles in the atmosphere can significantly decrease the reconstruction quality when shooting scenes in hazy conditions. To address this issue, we propose Dehazing-NeRF, a method that can recover clear NeRF from hazy image inputs. Our method simulates the physical imaging process of hazy images using an atmospheric scattering model, and jointly learns the atmospheric scattering model and a clean NeRF model for both image dehazing and novel view synthesis. Different from previous approaches, Dehazing-NeRF is an unsupervised method with only hazy images as the input, and also does not rely on hand-designed dehazing priors. By jointly combining the depth estimated from the NeRF 3D scene with the atmospheric scattering model, our proposed model breaks through the ill-posed problem of single-image dehazing while maintaining geometric consistency. Besides, to alleviate the degradation of image quality caused by information loss, soft margin consistency regularization, as well as atmospheric consistency and contrast discriminative loss, are addressed during the model training process. Extensive experiments demonstrate that our method outperforms the simple combination of single-image dehazing and NeRF on both image dehazing and novel view image synthesis.
+
+69
+PlaNeRF: SVD Unsupervised 3D Plane Regularization for NeRF Large-Scale Scene Reconstruction
+2023-05-26
+Neural Radiance Fields (NeRF) enable 3D scene reconstruction from 2D images and camera poses for Novel View Synthesis (NVS). Although NeRF can produce photorealistic results, it often suffers from overfitting to training views, leading to poor geometry reconstruction, especially in low-texture areas. This limitation restricts many important applications which require accurate geometry, such as extrapolated NVS, HD mapping and scene editing. To address this limitation, we propose a new method to improve NeRF's 3D structure using only RGB images and semantic maps. Our approach introduces a novel plane regularization based on Singular Value Decomposition (SVD), that does not rely on any geometric prior. In addition, we leverage the Structural Similarity Index Measure (SSIM) in our loss design to properly initialize the volumetric representation of NeRF. Quantitative and qualitative results show that our method outperforms popular regularization approaches in accurate geometry reconstruction for large-scale outdoor scenes and achieves SoTA rendering quality on the KITTI-360 NVS benchmark.
+
+73
+GANeRF: Leveraging Discriminators to Optimize Neural Radiance Fields
+2023-06-09
+Neural Radiance Fields (NeRF) have shown impressive novel view synthesis results; nonetheless, even thorough recordings yield imperfections in reconstructions, for instance due to poorly observed areas or minor lighting changes. Our goal is to mitigate these imperfections from various sources with a joint solution: we take advantage of the ability of generative adversarial networks (GANs) to produce realistic images and use them to enhance realism in 3D scene reconstruction with NeRFs. To this end, we learn the patch distribution of a scene using an adversarial discriminator, which provides feedback to the radiance field reconstruction, thus improving realism in a 3D-consistent fashion. Thereby, rendering artifacts are repaired directly in the underlying 3D representation by imposing multi-view path rendering constraints. In addition, we condition a generator with multi-resolution NeRF renderings which is adversarially trained to further improve rendering quality. We demonstrate that our approach significantly improves rendering quality, e.g., nearly halving LPIPS scores compared to Nerfacto while at the same time improving PSNR by 1.4dB on the advanced indoor scenes of Tanks and Temples.
+
+74
+Neural 3D Scene Reconstruction from Multiple 2D Images without 3D Supervision
+2023-06-30
+Neural 3D scene reconstruction methods have achieved impressive performance when reconstructing complex geometry and low-textured regions in indoor scenes. However, these methods heavily rely on 3D data which is costly and time-consuming to obtain in real world. In this paper, we propose a novel neural reconstruction method that reconstructs scenes using sparse depth under the plane constraints without 3D supervision. We introduce a signed distance function field, a color field, and a probability field to represent a scene. We optimize these fields to reconstruct the scene by using differentiable ray marching with accessible 2D images as supervision. We improve the reconstruction quality of complex geometry scene regions with sparse depth obtained by using the geometric constraints. The geometric constraints project 3D points on the surface to similar-looking regions with similar features in different 2D images. We impose the plane constraints to make large planes parallel or vertical to the indoor floor. Both two constraints help reconstruct accurate and smooth geometry structures of the scene. Without 3D supervision, our method achieves competitive performance compared with existing methods that use 3D supervision on the ScanNet dataset.
+
+76
+FrozenRecon: Pose-free 3D Scene Reconstruction with Frozen Depth Models
+2023-08-10
+3D scene reconstruction is a long-standing vision task. Existing approaches can be categorized into geometry-based and learning-based methods. The former leverages multi-view geometry but can face catastrophic failures due to the reliance on accurate pixel correspondence across views. The latter was proffered to mitigate these issues by learning 2D or 3D representation directly. However, without a large-scale video or 3D training data, it can hardly generalize to diverse real-world scenarios due to the presence of tens of millions or even billions of optimization parameters in the deep network. Recently, robust monocular depth estimation models trained with large-scale datasets have been proven to possess weak 3D geometry prior, but they are insufficient for reconstruction due to the unknown camera parameters, the affine-invariant property, and inter-frame inconsistency. Here, we propose a novel test-time optimization approach that can transfer the robustness of affine-invariant depth models such as LeReS to challenging diverse scenes while ensuring inter-frame consistency, with only dozens of parameters to optimize per video frame. Specifically, our approach involves freezing the pre-trained affine-invariant depth model's depth predictions, rectifying them by optimizing the unknown scale-shift values with a geometric consistency alignment module, and employing the resulting scale-consistent depth maps to robustly obtain camera poses and achieve dense scene reconstruction, even in low-texture regions. Experiments show that our method achieves state-of-the-art cross-dataset reconstruction on five zero-shot testing datasets.
+

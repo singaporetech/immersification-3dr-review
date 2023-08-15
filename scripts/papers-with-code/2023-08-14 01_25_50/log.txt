@@ -1,0 +1,34 @@
+14 Aug 2023, 01:25:50
+
+task_id: 3d-reconstruction
+items_per_page: 500
+min_date: 2018-01-01
+max_date: 2023-07-31
+and_or_query: [['online', 'progressive', 'collab', 'real-time', 'end-to-end']]
+not_query: ['facial', 'human', 'underwater', 'road surface', 'morphable', 'deform', 'x-ray', 'histology', 'endoscopic']
+format_type: 2
+
+Retrieving pages of '3d-reconstruction'
+Fetching page 1...contains 500 papers
+Fetching page 2...contains 500 papers
+Fetching page 3...contains 298 papers
+Retrieval done!
+
+Total pages retrieved  = 3
+Total papers retrieved = 1298
+
+Filtering out papers that do not have associated code...done!
+Removed 873 papers from list
+Remaining papers in list = 425
+
+Filtering out papers published before 2018-01-01 00:00:00 and after 2023-07-31 00:00:00...done!
+Removed 33 papers from list
+Remaining papers in list = 392
+
+Filtering papers based on AND-OR query...done!
+Removed 308 papers from list
+Remaining papers in list = 84
+
+Filtering papers based on NOT query...done!
+Removed 26 papers from list
+Remaining papers in list = 58
