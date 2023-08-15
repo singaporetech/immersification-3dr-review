@@ -17,6 +17,7 @@ The docker containers are used to review the code from the reviewed papers.
 
 ### Build docker images
 - Use the following command line to build the image:
+
 go to the `dockerfiles` directory:
 ```
 cd dockerfiles
@@ -44,6 +45,7 @@ docker run --gpus all -it -p [port]:5901 --name [container name] [image name]
 ```
 - with terminal, VNC and bind mounts:
 all prebuilt images contain example datasets if they are available. If custom datasets need to be used, create and mount the `datasets` directory to the container.
+
 create the directory:
 ```
 mkdir datasets
